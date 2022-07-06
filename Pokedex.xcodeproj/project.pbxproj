@@ -14,6 +14,8 @@
 		346E36122875F8710002EF81 /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E36112875F8710002EF81 /* PokedexTests.swift */; };
 		346E361C2875F8710002EF81 /* PokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E361B2875F8710002EF81 /* PokedexUITests.swift */; };
 		346E361E2875F8710002EF81 /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E361D2875F8710002EF81 /* PokedexUITestsLaunchTests.swift */; };
+		346E363028760C0F0002EF81 /* PokemonGb-RAeo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 346E362F28760C0F0002EF81 /* PokemonGb-RAeo.ttf */; };
+		346E363228760F460002EF81 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E363128760F460002EF81 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,9 @@
 		346E361B2875F8710002EF81 /* PokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITests.swift; sourceTree = "<group>"; };
 		346E361D2875F8710002EF81 /* PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		346E362A2875F8930002EF81 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		346E362E2876091E0002EF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		346E362F28760C0F0002EF81 /* PokemonGb-RAeo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PokemonGb-RAeo.ttf"; sourceTree = "<group>"; };
+		346E363128760F460002EF81 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 		346E35F42875F86C0002EF81 = {
 			isa = PBXGroup;
 			children = (
+				346E362B287608830002EF81 /* Font */,
 				346E362A2875F8930002EF81 /* README.md */,
 				346E35FF2875F86C0002EF81 /* Pokedex */,
 				346E36102875F8710002EF81 /* PokedexTests */,
@@ -96,10 +102,12 @@
 		346E35FF2875F86C0002EF81 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				346E362E2876091E0002EF81 /* Info.plist */,
 				346E36002875F86C0002EF81 /* PokedexApp.swift */,
 				346E36022875F86C0002EF81 /* ContentView.swift */,
 				346E36042875F8700002EF81 /* Assets.xcassets */,
 				346E36062875F8700002EF81 /* Preview Content */,
+				346E363128760F460002EF81 /* HeaderView.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -127,6 +135,14 @@
 				346E361D2875F8710002EF81 /* PokedexUITestsLaunchTests.swift */,
 			);
 			path = PokedexUITests;
+			sourceTree = "<group>";
+		};
+		346E362B287608830002EF81 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				346E362F28760C0F0002EF81 /* PokemonGb-RAeo.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346E363028760C0F0002EF81 /* PokemonGb-RAeo.ttf in Resources */,
 				346E36082875F8700002EF81 /* Preview Assets.xcassets in Resources */,
 				346E36052875F8700002EF81 /* Assets.xcassets in Resources */,
 			);
@@ -260,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				346E36032875F86C0002EF81 /* ContentView.swift in Sources */,
+				346E363228760F460002EF81 /* HeaderView.swift in Sources */,
 				346E36012875F86C0002EF81 /* PokedexApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +440,7 @@
 				DEVELOPMENT_TEAM = 6478Y3WC5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pokedex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +471,7 @@
 				DEVELOPMENT_TEAM = 6478Y3WC5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pokedex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
