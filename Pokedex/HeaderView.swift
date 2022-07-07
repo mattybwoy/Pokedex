@@ -16,20 +16,19 @@ struct HeaderView: View {
                 .resizable()
                 .frame(width: 20, height: 20)
                 .offset(x: 0, y: 10)
-            
+
                 Text("\nPokedex")
-                
                     .font(.custom("PokemonGB", size: 30))
                     .foregroundColor(.white)
                     .padding()
+            
             Image("pokeball")
                 .resizable()
                 .frame(width: 20, height: 20)
                 .offset(x: 0, y: 10)
             Spacer()
         }
-        .background(.black)
-        .opacity(0.7)
+        .background(Color("headerBackground"))
     }
 }
 

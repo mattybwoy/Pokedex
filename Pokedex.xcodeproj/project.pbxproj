@@ -16,6 +16,7 @@
 		346E361E2875F8710002EF81 /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E361D2875F8710002EF81 /* PokedexUITestsLaunchTests.swift */; };
 		346E363028760C0F0002EF81 /* PokemonGb-RAeo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 346E362F28760C0F0002EF81 /* PokemonGb-RAeo.ttf */; };
 		346E363228760F460002EF81 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E363128760F460002EF81 /* HeaderView.swift */; };
+		346E363428773E880002EF81 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E363328773E880002EF81 /* SplashScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		346E362E2876091E0002EF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		346E362F28760C0F0002EF81 /* PokemonGb-RAeo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PokemonGb-RAeo.ttf"; sourceTree = "<group>"; };
 		346E363128760F460002EF81 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		346E363328773E880002EF81 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +107,10 @@
 				346E362E2876091E0002EF81 /* Info.plist */,
 				346E36002875F86C0002EF81 /* PokedexApp.swift */,
 				346E36022875F86C0002EF81 /* ContentView.swift */,
+				346E363328773E880002EF81 /* SplashScreen.swift */,
+				346E363128760F460002EF81 /* HeaderView.swift */,
 				346E36042875F8700002EF81 /* Assets.xcassets */,
 				346E36062875F8700002EF81 /* Preview Content */,
-				346E363128760F460002EF81 /* HeaderView.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346E363428773E880002EF81 /* SplashScreen.swift in Sources */,
 				346E36032875F86C0002EF81 /* ContentView.swift in Sources */,
 				346E363228760F460002EF81 /* HeaderView.swift in Sources */,
 				346E36012875F86C0002EF81 /* PokedexApp.swift in Sources */,

@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            HeaderView()
-            Spacer()
+        ZStack {
+            Color("background")
+                .ignoresSafeArea()
+            VStack {
+                HeaderView()
+                Spacer()
+            }
         }
     }
 }
