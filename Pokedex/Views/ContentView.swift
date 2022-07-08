@@ -17,7 +17,11 @@ struct ContentView: View {
                 Spacer()
             }
         }
+        .onAppear {
+            DataManager.sharedInstance.testAPI()
+        }
     }
+        
 }
 
 

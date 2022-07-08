@@ -23,7 +23,8 @@ struct SplashScreen: View {
                     .ignoresSafeArea()
                 VStack {
                     VStack {
-                        Text("\nInitializing Pokédex")
+                        Text("Initializing Pokédex")
+                            .baselineOffset(-5)
                             .multilineTextAlignment(.center)
                             .font(.custom("PokemonGB", size: 20))
 
@@ -31,12 +32,15 @@ struct SplashScreen: View {
                             Image("pokeball")
                                 .resizable()
                                 .frame(width: 30, height: 30)
+                                .padding(.horizontal)
                             Image("pokeball")
                                 .resizable()
                                 .frame(width: 30, height: 30)
+                                .padding(.horizontal)
                             Image("pokeball")
                                 .resizable()
                                 .frame(width: 30, height: 30)
+                                .padding(.horizontal)
                         }
                         .mask(Rectangle().offset(x: writing ? 0 : -150))
                         Rectangle()
