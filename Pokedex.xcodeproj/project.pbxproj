@@ -108,10 +108,10 @@
 		346E35FF2875F86C0002EF81 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
-				3498B8B52878A25F0035FFB2 /* Models */,
 				346E362E2876091E0002EF81 /* Info.plist */,
 				346E36002875F86C0002EF81 /* PokedexApp.swift */,
 				3498B8B1287895AB0035FFB2 /* Views */,
+				3498B8B52878A25F0035FFB2 /* Models */,
 				3498B8B2287895B40035FFB2 /* Utilities */,
 				346E36042875F8700002EF81 /* Assets.xcassets */,
 				346E36062875F8700002EF81 /* Preview Content */,

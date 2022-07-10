@@ -18,10 +18,13 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            DataManager.sharedInstance.testAPI()
+            async {
+                let pokemonList = await DataManager.sharedInstance.testAPI()
+                print("This is the List" + "\(pokemonList)")
         }
     }
         
+}
 }
 
 
