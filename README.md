@@ -18,6 +18,7 @@ Create a Pokédex of all 151 original pokémon, utilising the PokémonAPI wrappe
 - UI Testing
 
 ## Testing
+2/2 UI Tests passing
 
 ## Installation
 

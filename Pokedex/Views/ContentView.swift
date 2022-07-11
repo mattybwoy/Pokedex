@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var pokemonList = DataManager.sharedInstance
+    
     var body: some View {
         ZStack {
             Color("background")
                 .ignoresSafeArea()
             VStack {
                 HeaderView()
+                List(pokemonList.pokelist, id: \.self) { pokemon in
+                    Text(pokemon.name)
+                }
+                .background(Color("background"))
                 Spacer()
             }
         }
         .onAppear {
             async {
-                let pokemonList = await DataManager.sharedInstance.testAPI()
-                print("This is the List" + "\(pokemonList)")
+                await DataManager.sharedInstance.testAPI()
+                
         }
     }
         

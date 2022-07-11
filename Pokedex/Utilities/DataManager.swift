@@ -7,25 +7,25 @@
 
 import Foundation
 
-class DataManager {
-    static let sharedInstance = DataManager()
-    var pokelist = [String]()
+class DataManager: ObservableObject {
     
-    func testAPI() async -> [String] {
+    static let sharedInstance = DataManager()
+    @Published var pokelist = [Pokemon]()
+    
+    func testAPI() async {
         if let url = URL(string: "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151") {
             do {
-                let (data, error) = try await URLSession.shared.data(from: url)
+                let (data, _) = try await URLSession.shared.data(from: url)
                 let status = try JSONDecoder().decode(PokemonList.self, from: data)
-                for pokemon in status.results {
-                    pokelist.append(pokemon.name)
+                DispatchQueue.main.async {
+                    self.pokelist = status.results
+                    print(self.pokelist)
                 }
-                return pokelist
             }
             catch {
                 print("\(error)")
-                return []
+                return
             }
         }
-        return []
     }
 }
