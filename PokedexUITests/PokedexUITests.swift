@@ -29,7 +29,13 @@ class PokedexUITests: XCTestCase {
         let header = app.staticTexts["Pokedéx"]
         XCTAssertNotNil(header)
     }
-
+    
+    func testMainScreenDisplaysPokemonList() {
+        let tablesQuery = app.tables
+        let firstCell = tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["bulbasaur"]/*[[".cells[\"bulbasaur\"].staticTexts[\"bulbasaur\"]",".staticTexts[\"bulbasaur\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertNotNil(tablesQuery)
+        XCTAssertNotNil(firstCell)
+    }
     
 }
 

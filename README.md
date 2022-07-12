@@ -18,7 +18,7 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 - UI Testing
 
 ## Testing
-2/2 UI Tests passing
+3/3 UI Tests passing
 1/2 Network Unit Tests passing
 
 ## Installation
