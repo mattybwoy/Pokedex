@@ -30,6 +30,7 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 ## Demo
 
 ## Tech Stack
+SwiftUI
 
 ## Simulator version
 11
