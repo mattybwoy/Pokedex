@@ -19,20 +19,20 @@ class DataManager: ObservableObject {
         self.urlSession = urlSession
     }
     
-    func testAPI() async {
-        if let url = URL(string: apiType.pokemonList.rawValue) {
+    func fetchPokemonList() async -> [Pokemon] {
+        if let url = URL(string: APIType.pokemonList.rawValue) {
             do {
                 let (data, _) = try await urlSession.data(from: url)
                 let status = try JSONDecoder().decode(PokemonList.self, from: data)
                 DispatchQueue.main.async {
                     self.pokelist = status.results
-                    print(status)
                 }
+                return pokelist
             }
             catch {
-                print("\(error)")
-                return
+                return []
             }
         }
+        return []
     }
 }

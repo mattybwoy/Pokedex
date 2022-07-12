@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var pokemonList = DataManager.sharedInstance
+    @StateObject var vm = ViewModel()
     @State var searchText = ""
     
     var body: some View {
@@ -20,14 +20,16 @@ struct ContentView: View {
                 HeaderView()
                 NavigationView {
                     List {
-                        ForEach(searchText == "" ? pokemonList.pokelist : pokemonList.pokelist.filter( {$0.name.contains(searchText.lowercased())} )) { pokemon in
-                            Text(pokemon.name)
+                        ForEach(searchText == "" ? vm.pokemonList : vm.pokemonList.filter( {$0.name.contains(searchText.lowercased())} )) { pokemon in
+                            HStack {
+                                Text(pokemon.name)
+                            }
                         }
                     }
                     .navigationBarTitleDisplayMode(.inline)
                     .onAppear {
-                        async {
-                            await DataManager.sharedInstance.testAPI()
+                        Task.init {
+                            await vm.setup()
                         }
                     }
                     .searchable(text: $searchText, prompt: "search")
