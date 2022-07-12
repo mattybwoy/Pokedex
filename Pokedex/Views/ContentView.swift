@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var pokemonList = DataManager.sharedInstance
+    @State var searchText = ""
     
     var body: some View {
         ZStack {
@@ -17,10 +18,15 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack {
                 HeaderView()
-                List(pokemonList.pokelist, id: \.self) { pokemon in
-                    Text(pokemon.name)
+                NavigationView {
+                    List(pokemonList.pokelist, id: \.self) { pokemon in
+                        Text(pokemon.name)
                 }
-                .background(Color("background"))
+                    .navigationBarTitleDisplayMode(.inline)
+                }
+                .searchable(text: $searchText)
+                
+
                 Spacer()
             }
         }
