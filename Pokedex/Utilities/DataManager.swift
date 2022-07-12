@@ -6,20 +6,27 @@
 //
 
 import Foundation
+import Combine
 
 class DataManager: ObservableObject {
     
     static let sharedInstance = DataManager()
     @Published var pokelist = [Pokemon]()
     
+    private var urlSession: URLSession
+    
+    init(urlSession: URLSession = .shared) {
+        self.urlSession = urlSession
+    }
+    
     func testAPI() async {
-        if let url = URL(string: "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151") {
+        if let url = URL(string: apiType.pokemonList.rawValue) {
             do {
-                let (data, _) = try await URLSession.shared.data(from: url)
+                let (data, _) = try await urlSession.data(from: url)
                 let status = try JSONDecoder().decode(PokemonList.self, from: data)
                 DispatchQueue.main.async {
                     self.pokelist = status.results
-                    print(self.pokelist)
+                    print(status)
                 }
             }
             catch {

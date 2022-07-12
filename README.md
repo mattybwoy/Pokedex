@@ -5,7 +5,7 @@ Pokédex
 </h1>
 
 ## Objective
-Create a Pokédex of all 151 original pokémon, utilising the PokémonAPI wrapper (https://github.com/kinkofer/PokemonAPI). Results are displayed in a list, with navigation to a bio of each Pokémon.
+Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (https://pokeapi.co/). Results are displayed in a list, with navigation to a bio of each Pokémon.
 
 ## Progress
 - Splash Screen complete
@@ -19,7 +19,7 @@ Create a Pokédex of all 151 original pokémon, utilising the PokémonAPI wrappe
 
 ## Testing
 2/2 UI Tests passing
-1/1 Network Unit Tests passing
+1/2 Network Unit Tests passing
 
 ## Installation
 

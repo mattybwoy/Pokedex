@@ -13,17 +13,35 @@ class PokedexNetworkingTests: XCTestCase {
     var sut: DataManager!
 
     override func setUpWithError() throws {
-        sut = DataManager()
+        let config = URLSessionConfiguration.ephemeral
+        config.protocolClasses = [MockURLProtocol.self]
+        let urlSession = URLSession(configuration: config)
+        sut = DataManager(urlSession: urlSession)
     }
 
     override func tearDownWithError() throws {
         sut = nil
+        MockURLProtocol.stubResponseData = nil
+        MockURLProtocol.error = nil
     }
-
-    func testAPICallRetrievesListOfPokemon() async {
+    
+    func testAPICallRetrievesRealListOfPokemon() async {
+        sut = nil
+        sut = DataManager()
         await sut.testAPI()
         XCTAssertNotNil(sut.pokelist)
         XCTAssertEqual(sut.pokelist.count, 151)
+    }
+
+    func testAPICallRetrievesListOfPokemon() async {
+        let count = 1154
+        let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151\", \"previous\": nil, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
+        
+        MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
+        await sut.testAPI()
+        XCTAssertNotNil(sut.pokelist)
+        XCTAssertEqual(sut.pokelist.count, 1)
+
     }
     
 
