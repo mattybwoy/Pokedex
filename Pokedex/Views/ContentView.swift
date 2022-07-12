@@ -19,25 +19,26 @@ struct ContentView: View {
             VStack {
                 HeaderView()
                 NavigationView {
-                    List(pokemonList.pokelist, id: \.self) { pokemon in
-                        Text(pokemon.name)
-                }
+                    List {
+                        ForEach(searchText == "" ? pokemonList.pokelist : pokemonList.pokelist.filter( {$0.name.contains(searchText.lowercased())} )) { pokemon in
+                            Text(pokemon.name)
+                        }
+                    }
                     .navigationBarTitleDisplayMode(.inline)
+                    .onAppear {
+                        async {
+                            await DataManager.sharedInstance.testAPI()
+                        }
+                    }
+                    .searchable(text: $searchText, prompt: "search")
+                    .font(.custom("PokemonGB", size: 20))
+                    Spacer()
                 }
-                .searchable(text: $searchText)
-                
-
-                Spacer()
             }
+            
         }
-        .onAppear {
-            async {
-                await DataManager.sharedInstance.testAPI()
-                
-        }
-    }
         
-}
+    }
 }
 
 
