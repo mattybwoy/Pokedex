@@ -15,6 +15,7 @@ class ViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.pokemonList = DataManager.sharedInstance.pokelist
         }
+        await DataManager.sharedInstance.fetchPokemonDetail(id: 1)
     }
     
     

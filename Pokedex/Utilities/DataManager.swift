@@ -35,4 +35,22 @@ class DataManager: ObservableObject {
         }
         return []
     }
+    
+    func fetchPokemonDetail(id: Int) async {
+        if let url = URL(string: APIType.pokemonDetail.rawValue + String(id)) {
+            do {
+                let (data, _) = try await urlSession.data(from: url)
+                let status = try JSONDecoder().decode(PokemonDetail.self, from: data)
+                DispatchQueue.main.async {
+                    print(status.name)
+                    print(status.height)
+                }
+            }
+            catch {
+                print("error!")
+                return
+            }
+        }
+    }
+    
 }
