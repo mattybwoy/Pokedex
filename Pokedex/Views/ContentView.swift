@@ -24,9 +24,15 @@ struct ContentView: View {
                             HStack {
                                 NavigationLink(destination: Text("Pokemon name is \(pokemon.name)"))
                                 {
-                                    PokemonImageCell(pokemon: pokemon)
+                                    HStack {
+                                        Text("\(vm.getPokemonID(id: pokemon))")
+                                        Text(pokemon.name)
+                                        Spacer()
+                                        PokemonImageCell(pokemon: pokemon)
+                                    }
+
                                 }
-                                Text(pokemon.name)
+
                             }
                         }
                     }
