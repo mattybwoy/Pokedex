@@ -22,6 +22,10 @@ struct ContentView: View {
                     List {
                         ForEach(searchText == "" ? vm.pokemonList : vm.pokemonList.filter( {$0.name.contains(searchText.lowercased())} )) { pokemon in
                             HStack {
+                                NavigationLink(destination: Text("Pokemon name is \(pokemon.name)"))
+                                {
+                                    PokemonImageCell(pokemon: pokemon)
+                                }
                                 Text(pokemon.name)
                             }
                         }
@@ -36,6 +40,7 @@ struct ContentView: View {
                     .font(.custom("PokemonGB", size: 20))
                     Spacer()
                 }
+                .environmentObject(vm)
             }
             
         }
@@ -47,5 +52,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ViewModel())
     }
 }
