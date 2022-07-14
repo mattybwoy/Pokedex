@@ -41,6 +41,9 @@
                <Test
                   Identifier = "PokedexNetworkingTests/testAPICallRetrievesListOfPokemon()">
                </Test>
+               <Test
+                  Identifier = "PokedexNetworkingTests/testWhenUnsuccessfulRequestReturnError()">
+               </Test>
             </SkippedTests>
          </TestableReference>
          <TestableReference

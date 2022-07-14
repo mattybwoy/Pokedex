@@ -12,6 +12,9 @@ struct ContentView: View {
     @StateObject var vm = ViewModel()
     @State var searchText = ""
     
+    init() {
+        UITableView.appearance().backgroundColor = .lightGray
+    }
     var body: some View {
         ZStack {
             Color("background")
@@ -35,12 +38,15 @@ struct ContentView: View {
                                         Spacer()
                                         PokemonImageCell(pokemon: pokemon)
                                     }
-
                                 }
-
                             }
                         }
+                        .listRowBackground(Color.blue)
+                        .background(Color("background"))
+                        .cornerRadius(15)
+                        .shadow(color: Color(UIColor.black.withAlphaComponent(0.8)), radius: 15, x: 0, y: 5)
                     }
+
                     .navigationBarTitleDisplayMode(.inline)
                     .onAppear {
                         Task.init {
@@ -48,15 +54,17 @@ struct ContentView: View {
                         }
                     }
                     .searchable(text: $searchText, prompt: "search")
+                    .accessibility(identifier: "searchBar")
                     .font(.custom("PokemonGB", size: 20))
                     Spacer()
                 }
                 .environmentObject(vm)
+                
             }
-            
+            .background(.black)
         }
-        
     }
+
 }
 
 

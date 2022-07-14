@@ -37,5 +37,14 @@ class PokedexUITests: XCTestCase {
         XCTAssertNotNil(firstCell)
     }
     
+    func testMainScreenDisplaysWorkingSearchBar() {
+        let searchSearchField = app.searchFields["searchBar"]
+        searchSearchField.tap()
+        searchSearchField.typeText("Weedle")
+        let result = app.tables.staticTexts["weedle"]
+         XCTAssertNotNil(result)
+    
+    }
+    
 }
 

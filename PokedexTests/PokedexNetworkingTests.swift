@@ -25,17 +25,36 @@ class PokedexNetworkingTests: XCTestCase {
         MockURLProtocol.error = nil
     }
     
-    func testAPICallRetrievesRealListOfPokemon() async throws {
+    func testfetchPokemonListRetrievesRealListOfPokemon() async throws {
         sut = nil
         sut = DataManager()
         try await sut.fetchPokemonList()
         XCTAssertNotNil(sut.pokelist)
         XCTAssertEqual(sut.pokelist.count, 151)
     }
+    
+    func testWhenUnsuccessfulRequestReturnError() async throws {
+        let count = 1154
+        let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?limit=151\", \"previous\": null, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
+        
+        MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
+        try await sut.fetchPokemonList()
+        XCTAssertTrue(MockURLProtocol.error != nil)
+    }
+    
+    func testfetchOnePokemonRetrievesOnePokemon() async throws {
+        let count = 1154
+        let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?offset=1&limit=1\", \"previous\": null, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
+        
+        MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
+        try await sut.fetchOnePokemon()
+        XCTAssertNotNil(sut.pokelist)
+        XCTAssertEqual(sut.pokelist.count, 1)
+    }
 
     func testAPICallRetrievesListOfPokemon() async throws {
         let count = 1154
-        let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151\", \"previous\": nil, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
+        let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?limit=151\", \"previous\": null, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
         
         MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
         try await sut.fetchPokemonList()
