@@ -8,10 +8,10 @@
 import Foundation
 import Combine
 
-class DataManager: ObservableObject {
+class DataManager {
     
     static let sharedInstance = DataManager()
-    @Published var pokelist = [Pokemon]()
+    var pokelist = [Pokemon]()
     
     private var urlSession: URLSession
     
@@ -19,21 +19,23 @@ class DataManager: ObservableObject {
         self.urlSession = urlSession
     }
     
-    func fetchPokemonList() async -> [Pokemon] {
+    func fetchPokemonList() async throws {
         if let url = URL(string: APIType.pokemonList.rawValue) {
-            do {
-                let (data, _) = try await urlSession.data(from: url)
-                let status = try JSONDecoder().decode(PokemonList.self, from: data)
-                DispatchQueue.main.async {
-                    self.pokelist = status.results
-                }
-                return pokelist
+            let (data, response) = try await urlSession.data(from: url)
+            guard let response = response as? HTTPURLResponse else {
+                throw APIError.noResponse
             }
-            catch {
-                return []
+            guard response.statusCode == 200 else {
+                throw APIError.no200
+            }
+            
+            guard let status = try JSONDecoder().decode(PokemonList?.self, from: data) else {
+                throw APIError.noData
+            }
+            DispatchQueue.main.async {
+                self.pokelist = status.results
             }
         }
-        return []
     }
     
     func fetchPokemonDetail(id: Int) async {

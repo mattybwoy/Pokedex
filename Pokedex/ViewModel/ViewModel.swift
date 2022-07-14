@@ -17,8 +17,8 @@ class ViewModel: ObservableObject {
         return 0
     }
     
-    func setup() async {
-        await DataManager.sharedInstance.fetchPokemonList()
+    func setup() async throws {
+        try await DataManager.sharedInstance.fetchPokemonList()
         DispatchQueue.main.async {
             self.pokemonList = DataManager.sharedInstance.pokelist
         }

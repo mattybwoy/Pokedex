@@ -25,8 +25,13 @@ struct ContentView: View {
                                 NavigationLink(destination: Text("Pokemon name is \(pokemon.name)"))
                                 {
                                     HStack {
-                                        Text("\(vm.getPokemonID(id: pokemon))")
+                                        Text("\(vm.getPokemonID(id: pokemon)).")
+                                            .font(.custom("PokemonGB", size: 13))
+                                            .baselineOffset(-5)
+                                            .padding()
                                         Text(pokemon.name)
+                                            .font(.custom("PokemonGB", size: 13))
+                                            .baselineOffset(-5)
                                         Spacer()
                                         PokemonImageCell(pokemon: pokemon)
                                     }
@@ -39,7 +44,7 @@ struct ContentView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .onAppear {
                         Task.init {
-                            await vm.setup()
+                            try await vm.setup()
                         }
                     }
                     .searchable(text: $searchText, prompt: "search")
