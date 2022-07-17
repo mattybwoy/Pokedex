@@ -48,13 +48,14 @@ struct ContentView: View {
                     }
 
                     .navigationBarTitleDisplayMode(.inline)
+
                     .onAppear {
                         Task.init {
                             try await vm.setup()
                         }
                     }
                     .searchable(text: $searchText, prompt: "search")
-                    .accessibility(identifier: "searchBar")
+                    .accessibilityIdentifier("searchBar")
                     .font(.custom("PokemonGB", size: 20))
                     Spacer()
                 }

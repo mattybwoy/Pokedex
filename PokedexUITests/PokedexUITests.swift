@@ -38,12 +38,13 @@ class PokedexUITests: XCTestCase {
     }
     
     func testMainScreenDisplaysWorkingSearchBar() {
-        let searchSearchField = app.searchFields["searchBar"]
+        sleep(2)
+        let searchSearchField = app.searchFields["search"]
         searchSearchField.tap()
         searchSearchField.typeText("Weedle")
         let result = app.tables.staticTexts["weedle"]
-         XCTAssertNotNil(result)
-    
+        result.tap()
+        XCTAssertTrue(app.staticTexts["Pokemon name is weedle"].exists)
     }
     
 }

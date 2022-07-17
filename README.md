@@ -17,7 +17,7 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 - Flip card animation for pokemon bio
 
 ## Testing
-3/4 UI Tests passing
+4/4 UI Tests passing
 1/2 Network Unit Tests passing
 
 ## Installation
