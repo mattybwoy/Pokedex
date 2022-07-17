@@ -47,5 +47,17 @@ class PokedexUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Pokemon name is weedle"].exists)
     }
     
+    func testAfterSelectingPokemonNavigationLinkAllowsYouToGoBack() {
+        sleep(2)
+        let firstCell =  app.children(matching: .window).element(boundBy: 0)
+        firstCell.tap()
+        let backButton = app.navigationBars["_TtGC7SwiftUI19UIHosting"].buttons["Back"]
+        backButton.tap()
+        let pokemonList = app.tables
+        let tableExists = pokemonList.element.waitForExistence(timeout: 2)
+        XCTAssertTrue(tableExists)
+    }
+    
+    
 }
 

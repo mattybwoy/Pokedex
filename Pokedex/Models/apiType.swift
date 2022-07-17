@@ -2,7 +2,7 @@
 //  APIType.swift
 //  Pokedex
 //
-//  Created by Matthew Lock on 12/07/2022.
+//  Created by Matthew Lock on 17/07/2022.
 //
 
 import Foundation
