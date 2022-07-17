@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var searchText = ""
     
     init() {
-        UITableView.appearance().backgroundColor = .lightGray
+        UITableView.appearance().backgroundColor = .white
     }
     var body: some View {
         ZStack {
@@ -41,7 +41,7 @@ struct ContentView: View {
                                 }
                             }
                         }
-                        .listRowBackground(Color.blue)
+                        .listRowBackground(Color.gray)
                         .background(Color("background"))
                         .cornerRadius(15)
                         .shadow(color: Color(UIColor.black.withAlphaComponent(0.8)), radius: 15, x: 0, y: 5)
@@ -61,7 +61,7 @@ struct ContentView: View {
                 .environmentObject(vm)
                 
             }
-            .background(.black)
+            .background(.red)
         }
     }
 

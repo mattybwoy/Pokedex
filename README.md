@@ -11,11 +11,10 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 - Splash Screen complete
 - Animation added for bouncing pokeballs in Header
 - List of pokemon now displayed in main pokedex screen 
+- App logo added
 
 ## Improvements
 - Flip card animation for pokemon bio
-- Unit Testing
-- UI Testing
 
 ## Testing
 3/4 UI Tests passing
