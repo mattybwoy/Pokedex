@@ -11,10 +11,15 @@ struct PokemonDetail: Codable {
     let height: Int
     let id: Int
     let name: String
+    let species: PokeSpecies
     let sprites: PokemonImage
     let stats: [BaseStat]
     let types: [Nature]
     let weight: Int
+}
+
+struct PokeSpecies: Codable {
+    let url: String
 }
 
 struct PokemonImage: Codable {
