@@ -25,7 +25,12 @@ struct ContentView: View {
                     List {
                         ForEach(searchText == "" ? vm.pokemonList : vm.pokemonList.filter( {$0.name.contains(searchText.lowercased())} )) { pokemon in
                             HStack {
-                                NavigationLink(destination: Text("Pokemon name is \(pokemon.name)"))
+                                NavigationLink(destination: DetailView(vm: vm)
+                                    .onAppear {
+                                        Task.init {
+                                            try await vm.setupSelectedPokemonView(pokemonID: vm.getPokemonID(id: pokemon))
+                                        }
+                                })
                                 {
                                     HStack {
                                         Text("\(vm.getPokemonID(id: pokemon)).")

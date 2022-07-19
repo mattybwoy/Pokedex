@@ -12,6 +12,7 @@ class DataManager {
     
     static let sharedInstance = DataManager()
     var pokelist = [Pokemon]()
+    var selectedPokemon: PokemonDetail?
     
     private var urlSession: URLSession
     
@@ -48,11 +49,11 @@ class DataManager {
                 throw APIError.no200
             }
             
-            guard let status = try JSONDecoder().decode(PokemonList?.self, from: data) else {
+            guard let decodedData = try JSONDecoder().decode(PokemonList?.self, from: data) else {
                 throw APIError.noData
             }
             DispatchQueue.main.async {
-                self.pokelist = status.results
+                self.pokelist = decodedData.results
             }
         }
     }
@@ -67,10 +68,9 @@ class DataManager {
             guard response.statusCode == 200 else {
                 throw APIError.no200
             }
-            let status = try JSONDecoder().decode(PokemonDetail.self, from: data)
+            let decodedData = try JSONDecoder().decode(PokemonDetail.self, from: data)
             DispatchQueue.main.async {
-                print(status.name)
-                print(status.height)
+                self.selectedPokemon = decodedData
             }
         }
     }

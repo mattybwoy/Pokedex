@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct DetailView: View {
-    
-    private var pokemonChakra = PokemonColor()
+    @StateObject var vm: ViewModel
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 12)
-            .stroke(Color(pokemonChakra.pokemonType(type: "green")), lineWidth: 8)
-            .frame(width: 300, height: 650)
-            .foregroundColor(.clear)
-            
+        CardBorderView()
+        Text(vm.selectPokemon?.name ?? "Matthew")
     }
+        
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(vm: ViewModel())
     }
 }

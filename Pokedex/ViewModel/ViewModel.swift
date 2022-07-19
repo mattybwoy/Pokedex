@@ -9,6 +9,7 @@ import Foundation
 
 class ViewModel: ObservableObject {
     @Published var pokemonList = [Pokemon]()
+    @Published var selectPokemon: PokemonDetail?
     
     func getPokemonID(id: Pokemon) -> Int {
         if let index = self.pokemonList.firstIndex(of: id) {
@@ -22,7 +23,15 @@ class ViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.pokemonList = DataManager.sharedInstance.pokelist
         }
-       try await DataManager.sharedInstance.fetchPokemonDetail(id: 1)
+      
+    }
+    
+    func setupSelectedPokemonView(pokemonID: Int) async throws {
+        try await DataManager.sharedInstance.fetchPokemonDetail(id: pokemonID)
+        DispatchQueue.main.async {
+            self.selectPokemon = DataManager.sharedInstance.selectedPokemon
+        }
+        
     }
     
     
