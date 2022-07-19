@@ -29,6 +29,7 @@ struct ContentView: View {
                                     .onAppear {
                                         Task.init {
                                             try await vm.setupSelectedPokemonView(pokemonID: vm.getPokemonID(id: pokemon))
+                                            print(vm.selectPokemon)
                                         }
                                 })
                                 {
@@ -51,9 +52,7 @@ struct ContentView: View {
                         .cornerRadius(15)
                         .shadow(color: Color(UIColor.black.withAlphaComponent(0.8)), radius: 15, x: 0, y: 5)
                     }
-
                     .navigationBarTitleDisplayMode(.inline)
-
                     .onAppear {
                         Task.init {
                             try await vm.setup()

@@ -26,7 +26,6 @@ struct PokemonImageCell: View {
         }
         .background(.thinMaterial)
         .clipShape(Circle())
-        
     }
 }
 
