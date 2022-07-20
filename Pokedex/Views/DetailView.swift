@@ -8,33 +8,25 @@
 import SwiftUI
 
 struct DetailView: View {
-    @StateObject var vm: ViewModel
-
+    
+    @ObservedObject var vm: ViewModel
+    
     var body: some View {
         ZStack{
             Color(.lightGray)
                 .ignoresSafeArea()
             CardBorderView()
             VStack {
-                Text(vm.selectPokemon?.name ?? "Matthew")
-                AsyncImage(url: URL(string: "\(vm.selectPokemon?.sprites)")) { image in
-                    if let image = image {
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 250, height: 250)
-                    }
-                } placeholder: {
-                    ProgressView()
-                        .frame(width: 250, height: 250)
-                }
-            
+                if let selected = vm.selectPokemon {
+                    Text(selected.name)
+                    .font(.custom("PokemonGB", size: 20))
+                    PokemonBioView(vm: vm)
                     
-        }
+                }
 
+            }
+        }
     }
-        
-}
 }
 
 struct DetailView_Previews: PreviewProvider {

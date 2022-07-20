@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonImageCell: View {
     
-    @EnvironmentObject var vm: ViewModel
+    @ObservedObject var vm: ViewModel
     let pokemon: Pokemon
     
     var body: some View {
@@ -31,7 +31,7 @@ struct PokemonImageCell: View {
 
 struct PokemonImageCell_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonImageCell(pokemon: Pokemon(name: "pikachu", url: "https://pokeapi.co/api/v2/pokemon/25/"))
+        PokemonImageCell(vm: ViewModel(), pokemon: Pokemon(name: "pikachu", url: "https://pokeapi.co/api/v2/pokemon/25/"))
             .environmentObject(ViewModel())
     }
 }

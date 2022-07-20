@@ -42,7 +42,7 @@ struct ContentView: View {
                                             .font(.custom("PokemonGB", size: 13))
                                             .baselineOffset(-5)
                                         Spacer()
-                                        PokemonImageCell(pokemon: pokemon)
+                                        PokemonImageCell(vm: vm, pokemon: pokemon)
                                     }
                                 }
                             }
