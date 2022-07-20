@@ -31,7 +31,20 @@ class ViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.selectPokemon = DataManager.sharedInstance.selectedPokemon
         }
-        
+    }
+    
+    var pokemonHeight: Int {
+        if let height = selectPokemon?.height {
+            return height * 10
+        }
+        return 0
+    }
+    
+    var pokemonWeight: Int {
+        if let weight = selectPokemon?.weight {
+            return weight / 10
+        }
+        return 0
     }
     
     

@@ -59,6 +59,7 @@ struct ContentView: View {
                         }
                     }
                     .searchable(text: $searchText, prompt: "search")
+                    .disableAutocorrection(true)
                     .accessibilityIdentifier("searchBar")
                     .font(.custom("PokemonGB", size: 20))
                     Spacer()
