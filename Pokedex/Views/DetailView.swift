@@ -19,14 +19,14 @@ struct DetailView: View {
             VStack {
                 if let selected = vm.selectPokemon {
                     Text(selected.name)
-                    .font(.custom("PokemonGB", size: 20))
+                        .font(.custom("PokemonGB", size: 20))
                     PokemonBioView(vm: vm)
-                    HStack {
-                        Text("Height: " + "\(vm.pokemonHeight) cm")
-                            .font(.custom("PokemonGB", size: 10))
-                        Text("Weight: " + "\(vm.pokemonWeight) kg")
-                            .font(.custom("PokemonGB", size: 10))
-                    }
+                    Text("Height: " + "\(vm.pokemonHeight) cm")
+                        .font(.custom("PokemonGB", size: 12))
+                    Text("Weight: " + "\(vm.pokemonWeight) kg")
+                        .font(.custom("PokemonGB", size: 12))
+                    Divider().frame(width: 200)
+                        .background(.black)
                 }
 
             }

@@ -25,7 +25,6 @@ struct PokemonBioView: View {
                     .frame(width: 250, height: 250)
             }
         }
-
     }
 }
 
