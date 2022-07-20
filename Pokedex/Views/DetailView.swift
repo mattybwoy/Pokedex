@@ -13,13 +13,17 @@ struct DetailView: View {
     
     var body: some View {
         ZStack{
-            Color(.lightGray)
+            Color(.white)
                 .ignoresSafeArea()
             CardBorderView()
             VStack {
                 if let selected = vm.selectPokemon {
+                    Text("\(selected.stats[0].base_stat) HP")
+                        .baselineOffset(-5)
+                        .offset(x: 90, y: -128)
+                        .font(.custom("PokemonGB", size: 15))
                     Text(selected.name)
-                        .font(.custom("PokemonGB", size: 20))
+                        .font(.custom("PokemonGB", size: 23))
                     PokemonBioView(vm: vm)
                     Text("Height: " + "\(vm.pokemonHeight) cm")
                         .font(.custom("PokemonGB", size: 12))
