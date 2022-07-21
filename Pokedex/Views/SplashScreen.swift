@@ -23,6 +23,10 @@ struct SplashScreen: View {
                     .ignoresSafeArea()
                 VStack {
                     VStack {
+                        Image("pokemonLogo")
+                            .resizable()
+                            .frame(width: 250, height: 100)
+                            .padding()
                         Text("Initializing Pokédex")
                             .baselineOffset(-5)
                             .multilineTextAlignment(.center)

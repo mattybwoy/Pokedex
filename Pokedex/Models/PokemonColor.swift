@@ -40,8 +40,10 @@ struct PokemonColor {
             return UIColor(red: 248/255, green: 87/255, blue: 137/255, alpha: 1)
         case "rock":
             return UIColor(red: 185/255, green: 161/255, blue: 53/255, alpha: 1)
-        default:
+        case "water":
             return UIColor(red: 104/255, green: 145/255, blue: 240/255, alpha: 1)
+        default:
+            return UIColor(red: 254/255, green: 155/255, blue: 233/255, alpha: 1)
         }
     }
     
