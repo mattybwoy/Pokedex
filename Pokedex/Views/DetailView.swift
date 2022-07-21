@@ -15,9 +15,9 @@ struct DetailView: View {
         ZStack{
             Color(.white)
                 .ignoresSafeArea()
-            CardBorderView()
+            if let selected = vm.selectPokemon {
+            CardBorderView(pokemonColorType: selected.types[0].type.name)
             VStack {
-                if let selected = vm.selectPokemon {
                     Text("\(selected.stats[0].base_stat)HP")
                         .baselineOffset(-5)
                         .offset(x: 90, y: -128)

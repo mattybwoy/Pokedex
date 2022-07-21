@@ -13,13 +13,14 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 - List of pokemon now displayed in main pokedex screen 
 - App logo added
 - Detailed Pokemon View added
+- Detail Pokemon Card Border now changes depending on pokemon type
 
 ## Improvements
 - Flip card animation for pokemon bio
 
 ## Testing
-5/5 UI Tests passing
-1/2 Network Unit Tests passing
+- 5/5 UI Tests passing
+- 1/2 Network Unit Tests passing
 
 ## Installation
 
