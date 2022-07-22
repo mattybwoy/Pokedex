@@ -42,5 +42,6 @@ struct Nature: Codable {
 
 struct NatureType: Codable {
     let name: String
+    let url: String
 }
 

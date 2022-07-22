@@ -11,4 +11,5 @@ enum APIType: String {
     case pokemonList = "https://pokeapi.co/api/v2/pokemon/?limit=151"
     case pokemonDetail = "https://pokeapi.co/api/v2/pokemon/"
     case onePokemon = "https://pokeapi.co/api/v2/pokemon/?limit=1"
+    case pokemonSpecies = "https://pokeapi.co/api/v2/pokemon-species/"
 }

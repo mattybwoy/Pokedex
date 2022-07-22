@@ -40,8 +40,11 @@ struct DetailView: View {
                         .font(.custom("PokemonGB", size: 12))
                     Text("Weight: " + "\(vm.pokemonWeight) kg")
                         .font(.custom("PokemonGB", size: 12))
-                    Divider().frame(width: 200)
+                    Divider().frame(width: 250)
                         .background(.black)
+                DescriptionView(vm: vm)
+                Divider().frame(width: 250)
+                    .background(.black)
                 }
 
             }

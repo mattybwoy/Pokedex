@@ -13,6 +13,7 @@
 		344024102886AA70002D1762 /* CardBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440240F2886AA70002D1762 /* CardBorderView.swift */; };
 		3440241228873434002D1762 /* PokemonBioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440241128873434002D1762 /* PokemonBioView.swift */; };
 		34402416288AB237002D1762 /* PokemonWeakness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34402415288AB237002D1762 /* PokemonWeakness.swift */; };
+		34402418288AB640002D1762 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34402417288AB640002D1762 /* DescriptionView.swift */; };
 		346E36012875F86C0002EF81 /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E36002875F86C0002EF81 /* PokedexApp.swift */; };
 		346E36032875F86C0002EF81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E36022875F86C0002EF81 /* ContentView.swift */; };
 		346E36052875F8700002EF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 346E36042875F8700002EF81 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		3440240F2886AA70002D1762 /* CardBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBorderView.swift; sourceTree = "<group>"; };
 		3440241128873434002D1762 /* PokemonBioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonBioView.swift; sourceTree = "<group>"; };
 		34402415288AB237002D1762 /* PokemonWeakness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonWeakness.swift; sourceTree = "<group>"; };
+		34402417288AB640002D1762 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		346E35FD2875F86C0002EF81 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		346E36002875F86C0002EF81 /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
 		346E36022875F86C0002EF81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				3490D0D32885B6F7000C4A35 /* DetailView.swift */,
 				3440240F2886AA70002D1762 /* CardBorderView.swift */,
 				3440241128873434002D1762 /* PokemonBioView.swift */,
+				34402417288AB640002D1762 /* DescriptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				346E363428773E880002EF81 /* SplashScreen.swift in Sources */,
 				3490D0D42885B6F7000C4A35 /* DetailView.swift in Sources */,
 				34402416288AB237002D1762 /* PokemonWeakness.swift in Sources */,
+				34402418288AB640002D1762 /* DescriptionView.swift in Sources */,
 				349B49E3287DCE18009700AD /* ViewModel.swift in Sources */,
 				3498B8B4287895D40035FFB2 /* DataManager.swift in Sources */,
 				346E36032875F86C0002EF81 /* ContentView.swift in Sources */,

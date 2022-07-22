@@ -13,6 +13,7 @@ class DataManager {
     static let sharedInstance = DataManager()
     var pokelist = [Pokemon]()
     var selectedPokemon: PokemonDetail?
+    var pokemonDescriptionText: String?
     
     private var urlSession: URLSession
     
@@ -74,5 +75,24 @@ class DataManager {
             }
         }
     }
+    
+    func fetchPokemonSpeciesData(id: Int) async throws {
+        if let url = URL(string: APIType.pokemonSpecies.rawValue + String(id)) {
+            let (data, response) = try await urlSession.data(from: url)
+            
+            guard let response = response as? HTTPURLResponse else {
+                throw APIError.noResponse
+            }
+            guard response.statusCode == 200 else {
+                throw APIError.no200
+            }
+            let decodedData = try JSONDecoder().decode(Species.self, from: data)
+            DispatchQueue.main.async {
+                self.pokemonDescriptionText = decodedData.flavor_text_entries[0].flavor_text
+            }
+        }
+    }
+    
+    
     
 }
