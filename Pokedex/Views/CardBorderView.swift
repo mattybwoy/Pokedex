@@ -13,10 +13,13 @@ struct CardBorderView: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
-            .stroke(Color(PokemonColor().pokemonType(type: pokemonColorType)), lineWidth: 8)
-            .frame(width: 300, height: 650)
+        
+            .stroke(Color(PokemonColor().pokemonType(type: pokemonColorType)), lineWidth: 40)
+            .border(Color.black, width: 10).cornerRadius(12)
+            .frame(width: 330, height: 670)
             .foregroundColor(.clear)
             .background(RadialGradient(gradient: Gradient(colors: [Color.gray, Color("background")]), center: .center, startRadius: 20, endRadius: 250))
+            
     }
 }
 
