@@ -15,6 +15,8 @@
 		34402416288AB237002D1762 /* PokemonWeakness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34402415288AB237002D1762 /* PokemonWeakness.swift */; };
 		34402418288AB640002D1762 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34402417288AB640002D1762 /* DescriptionView.swift */; };
 		3440241A288BFED0002D1762 /* PokemonTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34402419288BFED0002D1762 /* PokemonTypeView.swift */; };
+		3440241D288C5444002D1762 /* PrettyAxis in Frameworks */ = {isa = PBXBuildFile; productRef = 3440241C288C5444002D1762 /* PrettyAxis */; };
+		3440241F288C54B8002D1762 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440241E288C54B8002D1762 /* ChartView.swift */; };
 		346E36012875F86C0002EF81 /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E36002875F86C0002EF81 /* PokedexApp.swift */; };
 		346E36032875F86C0002EF81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E36022875F86C0002EF81 /* ContentView.swift */; };
 		346E36052875F8700002EF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 346E36042875F8700002EF81 /* Assets.xcassets */; };
@@ -62,6 +64,7 @@
 		34402415288AB237002D1762 /* PokemonWeakness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonWeakness.swift; sourceTree = "<group>"; };
 		34402417288AB640002D1762 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		34402419288BFED0002D1762 /* PokemonTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeView.swift; sourceTree = "<group>"; };
+		3440241E288C54B8002D1762 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		346E35FD2875F86C0002EF81 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		346E36002875F86C0002EF81 /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
 		346E36022875F86C0002EF81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3440241D288C5444002D1762 /* PrettyAxis in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +208,7 @@
 				3440241128873434002D1762 /* PokemonBioView.swift */,
 				34402417288AB640002D1762 /* DescriptionView.swift */,
 				34402419288BFED0002D1762 /* PokemonTypeView.swift */,
+				3440241E288C54B8002D1762 /* ChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +260,9 @@
 			dependencies = (
 			);
 			name = Pokedex;
+			packageProductDependencies = (
+				3440241C288C5444002D1762 /* PrettyAxis */,
+			);
 			productName = Pokedex;
 			productReference = 346E35FD2875F86C0002EF81 /* Pokedex.app */;
 			productType = "com.apple.product-type.application";
@@ -327,6 +335,9 @@
 				Base,
 			);
 			mainGroup = 346E35F42875F86C0002EF81;
+			packageReferences = (
+				3440241B288C5444002D1762 /* XCRemoteSwiftPackageReference "PrettyAxis" */,
+			);
 			productRefGroup = 346E35FE2875F86C0002EF81 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,6 +398,7 @@
 				3440240C2885DA4B002D1762 /* Species.swift in Sources */,
 				349B49E7287EAA5E009700AD /* PokemonDetail.swift in Sources */,
 				3498B8B72878A2850035FFB2 /* PokemonList.swift in Sources */,
+				3440241F288C54B8002D1762 /* ChartView.swift in Sources */,
 				349B49E9287ED839009700AD /* PokemonImageCell.swift in Sources */,
 				3490D0D62885BCA0000C4A35 /* PokemonColor.swift in Sources */,
 				34B4B44D28802EC800D1A780 /* APIError.swift in Sources */,
@@ -719,6 +731,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3440241B288C5444002D1762 /* XCRemoteSwiftPackageReference "PrettyAxis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RiuHDuo/PrettyAxis.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3440241C288C5444002D1762 /* PrettyAxis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3440241B288C5444002D1762 /* XCRemoteSwiftPackageReference "PrettyAxis" */;
+			productName = PrettyAxis;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 346E35F52875F86C0002EF81 /* Project object */;
 }
