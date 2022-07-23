@@ -17,13 +17,14 @@ struct PokemonTypeView: View {
                 Text("Type")
                     .baselineOffset(-5)
                     .font(.custom("PokemonGB", size: 12))
+                    .padding(.top, 5)
                 ForEach(vm.pokemonTypes, id: \.self) { nature in
                     Image(nature.type.name)
                         .resizable()
                         .frame(width: 50, height: 20)
                 }
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 30)
             VStack {
                 Text("Weak to")
                     .baselineOffset(-5)
@@ -36,9 +37,9 @@ struct PokemonTypeView: View {
                     }
                 }
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 30)
         }
-        
+        .frame(width: 320, height: 50)
     }
 }
 

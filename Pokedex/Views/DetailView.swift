@@ -21,13 +21,13 @@ struct DetailView: View {
                 HStack {
                     Image("\(selected.types[0].type.name)Type")
                         .resizable()
+                        .offset(y: -10)
                         .frame(width: 50, height: 50)
-                    .   offset(x: 0, y: -115)
-                    .padding(.horizontal, 80)
+                        .padding(.horizontal, 80)
                     Spacer()
                     Text("\(selected.stats[0].base_stat)HP")
                         .baselineOffset(-5)
-                        .offset(x: 0, y: -115)
+                        .offset(y: -10)
                         .font(.custom("PokemonGB", size: 15))
                         .padding(.trailing, 80)
                 }
@@ -35,6 +35,9 @@ struct DetailView: View {
                         .font(.custom("PokemonGB", size: 23))
                         .baselineOffset(-5)
                     PokemonBioView(vm: vm)
+                    .offset(y: -20)
+                    Text("No: \(selected.id)")
+                        .font(.custom("PokemonGB", size: 18))
                     Text("Height: " + "\(vm.pokemonHeight) cm")
                         .font(.custom("PokemonGB", size: 12))
                     Text("Weight: " + "\(vm.pokemonWeight) kg")
@@ -47,7 +50,6 @@ struct DetailView: View {
                     .background(.black)
                 PokemonTypeView(vm: vm)
                 }
-
             }
         }
     }

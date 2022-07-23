@@ -18,7 +18,7 @@ struct CardBorderView: View {
             .border(Color.black, width: 10).cornerRadius(12)
             .frame(width: 330, height: 670)
             .foregroundColor(.clear)
-            .background(RadialGradient(gradient: Gradient(colors: [Color.gray, Color("background")]), center: .center, startRadius: 20, endRadius: 250))
+            .background(RadialGradient(gradient: Gradient(colors: [Color.white, Color("background")]), center: UnitPoint(x: 0.5, y: 0.3), startRadius: 10, endRadius: 200))
             
     }
 }

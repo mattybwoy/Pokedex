@@ -18,11 +18,11 @@ struct PokemonBioView: View {
                     image
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 250, height: 250)
+                        .frame(width: 220, height: 220)
                 }
             } placeholder: {
                 ProgressView()
-                    .frame(width: 250, height: 250)
+                    .frame(width: 220, height: 220)
             }
         }
     }
