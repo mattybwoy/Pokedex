@@ -50,5 +50,12 @@ class ViewModel: ObservableObject {
         return 0
     }
     
+    var pokemonTypes: [Nature] {
+        guard let pokemonTypes = selectPokemon?.types else {
+            return []
+        }
+        return pokemonTypes
+    }
+    
     
 }

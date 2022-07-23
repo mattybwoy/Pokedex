@@ -35,12 +35,15 @@ struct Stat: Codable {
     let name: String
 }
 
-struct Nature: Codable {
+struct Nature: Codable, Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type)
+    }
     let slot: Int
     let type: NatureType
 }
 
-struct NatureType: Codable {
+struct NatureType: Codable, Hashable {
     let name: String
     let url: String
 }

@@ -30,7 +30,6 @@ struct DetailView: View {
                         .offset(x: 0, y: -115)
                         .font(.custom("PokemonGB", size: 15))
                         .padding(.trailing, 80)
-
                 }
                     Text(selected.name)
                         .font(.custom("PokemonGB", size: 23))
@@ -45,6 +44,7 @@ struct DetailView: View {
                 DescriptionView(vm: vm)
                 Divider().frame(width: 250)
                     .background(.black)
+                PokemonTypeView(vm: vm)
                 }
 
             }
