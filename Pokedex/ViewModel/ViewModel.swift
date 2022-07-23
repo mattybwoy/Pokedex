@@ -57,5 +57,8 @@ class ViewModel: ObservableObject {
         return pokemonTypes
     }
     
+    var pokemonWeaknesses: [String] {
+        return DataManager.sharedInstance.weaknesses
+    }
     
 }

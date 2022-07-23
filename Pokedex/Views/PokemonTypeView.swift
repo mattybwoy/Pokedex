@@ -28,6 +28,13 @@ struct PokemonTypeView: View {
                 Text("Weak to")
                     .baselineOffset(-5)
                     .font(.custom("PokemonGB", size: 12))
+                HStack {
+                    ForEach(vm.pokemonWeaknesses, id: \.self) { weakness in
+                        Image("\(weakness)Type")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
+                }
             }
             .padding(.horizontal, 40)
         }
