@@ -18,6 +18,11 @@ struct Evolution: Codable {
 
 struct Description: Codable {
     let flavor_text: String
+    let language: LanguageVersion
+}
+
+struct LanguageVersion: Codable {
+    let name: String
 }
 
 

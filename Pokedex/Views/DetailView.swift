@@ -42,6 +42,7 @@ struct DetailView: View {
                     Divider().frame(width: 250)
                         .background(.black)
                 DescriptionView(vm: vm)
+                    .frame(width: 270, height: 130)
                 Divider().frame(width: 250)
                     .background(.black)
                 PokemonTypeView(vm: vm)

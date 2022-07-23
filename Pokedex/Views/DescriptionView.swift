@@ -17,6 +17,7 @@ struct DescriptionView: View {
                 .font(.custom("PokemonGB", size: 15))
                 .baselineOffset(-5)
                 .frame(alignment: .topTrailing)
+                .minimumScaleFactor(0.5)
 
         }
     }

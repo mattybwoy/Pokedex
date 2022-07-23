@@ -90,7 +90,11 @@ class DataManager {
             }
             let decodedData = try JSONDecoder().decode(Species.self, from: data)
             DispatchQueue.main.async {
-                self.pokemonDescriptionText = decodedData.flavor_text_entries[0].flavor_text
+                guard let engIndex = decodedData.flavor_text_entries.firstIndex(where: { $0.language.name == "en" }) else {
+                    return
+                }
+                self.pokemonDescriptionText = decodedData.flavor_text_entries[engIndex].flavor_text
+
             }
         }
     }

@@ -61,4 +61,5 @@ class ViewModel: ObservableObject {
         return DataManager.sharedInstance.weaknesses
     }
     
+    
 }
