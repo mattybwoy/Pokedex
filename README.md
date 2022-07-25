@@ -14,6 +14,7 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 - App logo added
 - Detailed Pokemon View added
 - Detail Pokemon Card Border now changes depending on pokemon type
+- PrettyAxis installed
 
 ## Improvements
 - Flip card animation for pokemon bio
@@ -37,3 +38,4 @@ SwiftUI
 11
 
 ## Dependencies
+PrettyAxis
