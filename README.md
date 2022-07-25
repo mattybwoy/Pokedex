@@ -15,9 +15,10 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 - Detailed Pokemon View added
 - Detail Pokemon Card Border now changes depending on pokemon type
 - PrettyAxis installed
+- Pokemon Stats now displayed under Bio
 
 ## Improvements
-- Flip card animation for pokemon bio
+- Legendary Pokemon Indicator
 
 ## Testing
 - 5/5 UI Tests passing

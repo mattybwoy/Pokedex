@@ -11,6 +11,7 @@ class ViewModel: ObservableObject {
     @Published var pokemonList = [Pokemon]()
     @Published var selectPokemon: PokemonDetail?
     @Published var pokemonDescription: String?
+    @Published var pokemonStats: [PokemonStat]?
     
     func getPokemonID(id: Pokemon) -> Int {
         if let index = self.pokemonList.firstIndex(of: id) {
@@ -33,7 +34,9 @@ class ViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.selectPokemon = DataManager.sharedInstance.selectedPokemon
             self.pokemonDescription = DataManager.sharedInstance.pokemonDescriptionText
+            self.setupSelectedPokemonStats()
         }
+
     }
     
     var pokemonHeight: Int {
@@ -61,5 +64,17 @@ class ViewModel: ObservableObject {
         return DataManager.sharedInstance.weaknesses
     }
     
+    func setupSelectedPokemonStats() {
+        guard let selected = selectPokemon else {
+            return
+        }
+        pokemonStats = [
+        PokemonStat(stat: "atk", value: selected.stats[1].base_stat),
+        PokemonStat(stat: "def", value: selected.stats[2].base_stat),
+        PokemonStat(stat: "s.atk", value: selected.stats[3].base_stat),
+        PokemonStat(stat: "s.def", value: selected.stats[4].base_stat),
+        PokemonStat(stat: "spd", value: selected.stats[5].base_stat)
+        ]
+    }
     
 }
