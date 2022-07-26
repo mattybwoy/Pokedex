@@ -89,6 +89,7 @@ class DataManager {
                 throw APIError.no200
             }
             let decodedData = try JSONDecoder().decode(Species.self, from: data)
+            try await fetchPokemonEvolutions(url: decodedData.evolution_chain.url)
             DispatchQueue.main.async {
                 guard let engIndex = decodedData.flavor_text_entries.firstIndex(where: { $0.language.name == "en" }) else {
                     return
@@ -114,6 +115,24 @@ class DataManager {
                 for pokemon in decodedData.damage_relations.double_damage_from {
                     self.weaknesses.append(pokemon.name)
             }
+        }
+    }
+    
+    func fetchPokemonEvolutions(url: String) async throws {
+        if let url = URL(string: url) {
+            let (data, response) = try await urlSession.data(from: url)
+            
+            guard let response = response as? HTTPURLResponse else {
+                throw APIError.noResponse
+            }
+            guard response.statusCode == 200 else {
+                throw APIError.no200
+            }
+            let decodedData = try JSONDecoder().decode(Evolution_Chain.self, from: data)
+            print(decodedData)
+            //print(decodedData.chain.evolves_to[0].evolves_to[0].species.name)
+            //print(decodedData.chain.evolves_to[0].species.name)
+            print(decodedData.chain.species.name)
         }
     }
     

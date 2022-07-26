@@ -22,7 +22,8 @@ struct ChartView: View {
                 .fromZero(true)
                 .xAxisLabelColor(Color.black)
                 .referenceLine(style: ReferenceLineStyle(axisColor: Color.black))
-                .spacing(35)
+                .barWidth(25)
+                .spacing(25)
                 .enableLegend(true, style: LegendStyle(labelColor: Color.black))
                 .xAxisLabelFont(.custom("PokemonGB", size: 8)).lineLimit(1)
         }

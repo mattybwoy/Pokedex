@@ -9,11 +9,19 @@ import Foundation
 
 struct Evolution_Chain: Codable {
     let chain: Chain
-    let species: PokemonType
 }
 
 struct Chain: Codable {
-    let evolves_to: [Chain]
+    let evolves_to: [EvoChain]
+    let species: PokemonType
+}
+
+struct EvoChain: Codable {
+    let evolves_to: [FinalPokemon]
+    let species: PokemonType
+}
+
+struct FinalPokemon: Codable {
     let species: PokemonType
 }
 
