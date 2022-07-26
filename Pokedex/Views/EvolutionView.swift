@@ -12,21 +12,28 @@ struct EvolutionView: View {
     @ObservedObject var vm: ViewModel
     
     var body: some View {
-        HStack {
-            ForEach(vm.pokemonChainArray, id: \.self) { pokemon in
-                AsyncImage(url: URL(string: pokemon)) { image in
-                    if let image = image {
-                        image
-                            .resizable()
-                            .scaledToFit()
+        VStack {
+            Text("Evolution Chain")
+                .font(.custom("PokemonGB", size: 15))
+                .baselineOffset(-5)
+                .padding(.bottom, 5)
+            HStack {
+                ForEach(vm.pokemonChainArray, id: \.self) { pokemon in
+                    AsyncImage(url: URL(string: pokemon)) { image in
+                        if let image = image {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 70, height: 70)
+                        }
+                    } placeholder: {
+                        ProgressView()
                             .frame(width: 70, height: 70)
                     }
-                } placeholder: {
-                    ProgressView()
-                        .frame(width: 70, height: 70)
                 }
             }
         }
+
     }
 }
 

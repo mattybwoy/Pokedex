@@ -13,8 +13,13 @@ struct ContentView: View {
     @State var searchText = ""
     
     init() {
-        UITableView.appearance().backgroundColor = .white
+        UITableView.appearance().backgroundColor = UIColor(Color("background"))
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .darkGray
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
+        UINavigationBar.appearance().tintColor = .darkGray
+        
     }
+    
     var body: some View {
         ZStack {
             Color("background")
@@ -48,6 +53,7 @@ struct ContentView: View {
                         }
                         .listRowBackground(Color.gray)
                         .background(Color("background"))
+                        .foregroundColor(Color.black)
                         .cornerRadius(15)
                         .shadow(color: Color(UIColor.black.withAlphaComponent(0.8)), radius: 15, x: 0, y: 5)
                     }
@@ -58,13 +64,15 @@ struct ContentView: View {
                         }
                     }
                     .searchable(text: $searchText, prompt: "search")
+                    .foregroundColor(Color.white)
+                    .animation(.default, value: searchText)
+                    .tint(Color(UIColor.white))
                     .disableAutocorrection(true)
                     .accessibilityIdentifier("searchBar")
                     .font(.custom("PokemonGB", size: 20))
                     Spacer()
                 }
                 .environmentObject(vm)
-                
             }
             .background(.red)
         }
