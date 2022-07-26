@@ -12,12 +12,12 @@ struct Evolution_Chain: Codable {
 }
 
 struct Chain: Codable {
-    let evolves_to: [EvoChain]
+    let evolves_to: [EvoChain]?
     let species: PokemonType
 }
 
 struct EvoChain: Codable {
-    let evolves_to: [FinalPokemon]
+    let evolves_to: [FinalPokemon]?
     let species: PokemonType
 }
 

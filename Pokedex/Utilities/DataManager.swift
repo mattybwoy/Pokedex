@@ -15,6 +15,9 @@ class DataManager {
     var selectedPokemon: PokemonDetail?
     var pokemonDescriptionText: String?
     var weaknesses: [String] = []
+    var firstFormSprite: String?
+    var secondFormSprite: String?
+    var finalFormSprite: String?
     
     private var urlSession: URLSession
     
@@ -74,6 +77,10 @@ class DataManager {
             try await fetchPokemonWeakness(url: decodedData.types[0].type.url)
             DispatchQueue.main.async {
                 self.selectedPokemon = decodedData
+                self.firstFormSprite = nil
+                self.secondFormSprite = nil
+                self.finalFormSprite = nil
+                
             }
         }
     }
@@ -129,13 +136,84 @@ class DataManager {
                 throw APIError.no200
             }
             let decodedData = try JSONDecoder().decode(Evolution_Chain.self, from: data)
-            print(decodedData)
-            //print(decodedData.chain.evolves_to[0].evolves_to[0].species.name)
-            //print(decodedData.chain.evolves_to[0].species.name)
-            print(decodedData.chain.species.name)
+            let firstPokemon = decodedData.chain.species.name
+            try await fetchFirstEvolutionFormSprites(pokemonName: firstPokemon)
+            
+            guard let secondPokemon = decodedData.chain.evolves_to else {
+               return
+            }
+            if secondPokemon.count > 0 {
+                let secondFormPokemon = secondPokemon[0].species.name
+                try await fetchSecondEvolutionFormSprites(pokemonName: secondFormPokemon)
+            }
+            
+            guard let finalPokemon = decodedData.chain.evolves_to else {
+               return
+            }
+            
+            if finalPokemon.count > 0 {
+                guard let finalForm = finalPokemon[0].evolves_to else {
+                    return
+                }
+                if finalForm.count > 0 {
+                    let finalFormPokemon = finalForm[0].species.name
+                    try await fetchFinalEvolutionFormSprites(pokemonName: finalFormPokemon)
+                }
+            }
         }
     }
     
+    func fetchFirstEvolutionFormSprites(pokemonName: String) async throws {
+        if let url = URL(string: APIType.pokemonDetail.rawValue + pokemonName) {
+            let (data, response) = try await urlSession.data(from: url)
+            
+            guard let response = response as? HTTPURLResponse else {
+                throw APIError.noResponse
+            }
+            guard response.statusCode == 200 else {
+                throw APIError.no200
+            }
+            let decodedData = try JSONDecoder().decode(PokemonDetail.self, from: data)
+            DispatchQueue.main.async {
+                self.firstFormSprite = decodedData.sprites.front_default
+            }
+        }
+    }
+    
+    func fetchSecondEvolutionFormSprites(pokemonName: String) async throws {
+        if let url = URL(string: APIType.pokemonDetail.rawValue + pokemonName) {
+            let (data, response) = try await urlSession.data(from: url)
+            
+            guard let response = response as? HTTPURLResponse else {
+                throw APIError.noResponse
+            }
+            guard response.statusCode == 200 else {
+                throw APIError.no200
+            }
+            let decodedData = try JSONDecoder().decode(PokemonDetail.self, from: data)
+            DispatchQueue.main.async {
+                self.secondFormSprite = decodedData.sprites.front_default
+                
+            }
+        }
+    }
+    
+    func fetchFinalEvolutionFormSprites(pokemonName: String) async throws {
+        if let url = URL(string: APIType.pokemonDetail.rawValue + pokemonName) {
+            let (data, response) = try await urlSession.data(from: url)
+            
+            guard let response = response as? HTTPURLResponse else {
+                throw APIError.noResponse
+            }
+            guard response.statusCode == 200 else {
+                throw APIError.no200
+            }
+            let decodedData = try JSONDecoder().decode(PokemonDetail.self, from: data)
+            DispatchQueue.main.async {
+                self.finalFormSprite = decodedData.sprites.front_default
+            }
+        }
+    }
     
     
 }

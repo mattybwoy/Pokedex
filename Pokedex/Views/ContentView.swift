@@ -29,7 +29,6 @@ struct ContentView: View {
                                     .onAppear {
                                         Task.init {
                                             try await vm.setupSelectedPokemonView(pokemonID: vm.getPokemonID(id: pokemon))
-                                            print(vm.selectPokemon)
                                         }
                                 })
                                 {
