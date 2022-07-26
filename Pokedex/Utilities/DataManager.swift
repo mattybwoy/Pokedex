@@ -79,8 +79,7 @@ class DataManager {
                 self.selectedPokemon = decodedData
                 self.firstFormSprite = nil
                 self.secondFormSprite = nil
-                self.finalFormSprite = nil
-                
+                self.finalFormSprite = nil     
             }
         }
     }

@@ -12,6 +12,7 @@ class ViewModel: ObservableObject {
     @Published var selectPokemon: PokemonDetail?
     @Published var pokemonDescription: String?
     @Published var pokemonStats: [PokemonStat]?
+    @Published var pokemonChainArray = [String]()
     
     func getPokemonID(id: Pokemon) -> Int {
         if let index = self.pokemonList.firstIndex(of: id) {
@@ -35,8 +36,8 @@ class ViewModel: ObservableObject {
             self.selectPokemon = DataManager.sharedInstance.selectedPokemon
             self.pokemonDescription = DataManager.sharedInstance.pokemonDescriptionText
             self.setupSelectedPokemonStats()
+            self.setupPokemonEvolutionArray()
         }
-
     }
     
     var pokemonHeight: Int {
@@ -76,5 +77,22 @@ class ViewModel: ObservableObject {
         PokemonStat(stat: "spd", value: selected.stats[5].base_stat)
         ]
     }
+    
+    func setupPokemonEvolutionArray() {
+        pokemonChainArray = []
+        guard let firstSprite = DataManager.sharedInstance.firstFormSprite else {
+            return
+        }
+        pokemonChainArray.append(firstSprite)
+        guard let secondSprite = DataManager.sharedInstance.secondFormSprite else {
+            return
+        }
+        pokemonChainArray.append(secondSprite)
+        guard let finalSprite = DataManager.sharedInstance.finalFormSprite else {
+            return
+        }
+        pokemonChainArray.append(finalSprite)
+    }
+    
     
 }

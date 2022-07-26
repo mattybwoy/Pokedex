@@ -48,6 +48,7 @@ struct DetailView: View {
                     TabView {
                         DescriptionView(vm: vm)
                         ChartView(pokemonColorType: selected.types[0].type.name, vm: vm)
+                        EvolutionView(vm: vm)
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                     .frame(width: 270, height: 130)

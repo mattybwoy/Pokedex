@@ -16,6 +16,7 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 - Detail Pokemon Card Border now changes depending on pokemon type
 - PrettyAxis installed
 - Pokemon Stats now displayed under Bio
+- Pokemon Evolution now displayed in Pokemon Bio
 
 ## Improvements
 - Legendary Pokemon Indicator
