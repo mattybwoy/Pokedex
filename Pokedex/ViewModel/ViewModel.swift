@@ -92,6 +92,7 @@ class ViewModel: ObservableObject {
             return
         }
         pokemonChainArray.append(finalSprite)
+        print(pokemonChainArray)
     }
     
     

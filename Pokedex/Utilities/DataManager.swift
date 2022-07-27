@@ -141,24 +141,34 @@ class DataManager {
             guard let secondPokemon = decodedData.chain.evolves_to else {
                return
             }
-            if secondPokemon.count > 0 {
-                let secondFormPokemon = secondPokemon[0].species.name
-                try await fetchSecondEvolutionFormSprites(pokemonName: secondFormPokemon)
+            if secondPokemon.count > 1 {
+                self.secondFormSprite = "unknown"
+            } else {
+                if secondPokemon.count > 0 {
+                    let secondFormPokemon = secondPokemon[0].species.name
+                    try await fetchSecondEvolutionFormSprites(pokemonName: secondFormPokemon)
+                }
             }
             
             guard let finalPokemon = decodedData.chain.evolves_to else {
                return
             }
             
-            if finalPokemon.count > 0 {
-                guard let finalForm = finalPokemon[0].evolves_to else {
-                    return
-                }
-                if finalForm.count > 0 {
-                    let finalFormPokemon = finalForm[0].species.name
-                    try await fetchFinalEvolutionFormSprites(pokemonName: finalFormPokemon)
+            if finalPokemon.count > 1 {
+                self.finalFormSprite = "unknown"
+            } else {
+                if finalPokemon.count > 0 {
+                    guard let finalForm = finalPokemon[0].evolves_to else {
+                        return
+                    }
+                    if finalForm.count > 0 {
+                        let finalFormPokemon = finalForm[0].species.name
+                        try await fetchFinalEvolutionFormSprites(pokemonName: finalFormPokemon)
+                    }
                 }
             }
+            
+
         }
     }
     

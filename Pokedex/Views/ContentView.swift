@@ -35,7 +35,7 @@ struct ContentView: View {
                                         Task.init {
                                             try await vm.setupSelectedPokemonView(pokemonID: vm.getPokemonID(id: pokemon))
                                         }
-                                })
+                                    })
                                 {
                                     HStack {
                                         Text("\(vm.getPokemonID(id: pokemon)).")

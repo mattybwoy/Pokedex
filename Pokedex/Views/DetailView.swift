@@ -55,7 +55,6 @@ struct DetailView: View {
                     Divider().frame(width: 250)
                         .background(.black)
                     PokemonTypeView(vm: vm)
-                    
                 }
             }
         }
