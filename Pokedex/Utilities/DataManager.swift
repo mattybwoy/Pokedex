@@ -18,6 +18,7 @@ class DataManager {
     var firstFormSprite: String?
     var secondFormSprite: String?
     var finalFormSprite: String?
+    var isLegendary: Bool = false
     
     private var urlSession: URLSession
     
@@ -101,6 +102,7 @@ class DataManager {
                     return
                 }
                 self.pokemonDescriptionText = decodedData.flavor_text_entries[engIndex].flavor_text
+                self.isLegendary = decodedData.is_legendary
 
             }
         }

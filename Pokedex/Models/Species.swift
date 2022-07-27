@@ -10,6 +10,7 @@ import Foundation
 struct Species: Codable {
     let evolution_chain: Evolution
     let flavor_text_entries: [Description]
+    let is_legendary: Bool
 }
 
 struct Evolution: Codable {

@@ -8,11 +8,13 @@
 import Foundation
 
 class ViewModel: ObservableObject {
+    
     @Published var pokemonList = [Pokemon]()
     @Published var selectPokemon: PokemonDetail?
     @Published var pokemonDescription: String?
     @Published var pokemonStats: [PokemonStat]?
     @Published var pokemonChainArray = [String]()
+    //@Published var pokemonLegendary = false
     
     func getPokemonID(id: Pokemon) -> Int {
         if let index = self.pokemonList.firstIndex(of: id) {
@@ -92,7 +94,11 @@ class ViewModel: ObservableObject {
             return
         }
         pokemonChainArray.append(finalSprite)
-        print(pokemonChainArray)
+    }
+    
+    var isLegend: Bool {
+
+        return DataManager.sharedInstance.isLegendary
     }
     
     

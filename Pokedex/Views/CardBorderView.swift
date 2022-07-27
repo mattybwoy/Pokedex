@@ -9,22 +9,30 @@ import SwiftUI
 
 struct CardBorderView: View {
     
+    @ObservedObject var vm: ViewModel
     public var pokemonColorType: String
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 12)
-        
-            .stroke(Color(PokemonColor().pokemonType(type: pokemonColorType)), lineWidth: 40)
-            .border(Color.black, width: 10).cornerRadius(12)
-            .frame(width: 330, height: 670)
-            .foregroundColor(.clear)
-            .background(RadialGradient(gradient: Gradient(colors: [Color.white, Color("background")]), center: UnitPoint(x: 0.5, y: 0.3), startRadius: 10, endRadius: 200))
-            
+        if vm.isLegend {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color(PokemonColor().pokemonType(type: pokemonColorType)), lineWidth: 40)
+                .border(Color.black, width: 10).cornerRadius(12)
+                .frame(width: 330, height: 670)
+                .foregroundColor(.clear)
+                .background(RadialGradient(gradient: Gradient(colors: [Color.yellow, Color("background")]), center: UnitPoint(x: 0.5, y: 0.3), startRadius: 10, endRadius: 200))
+        } else {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color(PokemonColor().pokemonType(type: pokemonColorType)), lineWidth: 40)
+                .border(Color.black, width: 10).cornerRadius(12)
+                .frame(width: 330, height: 670)
+                .foregroundColor(.clear)
+                .background(RadialGradient(gradient: Gradient(colors: [Color.white, Color("background")]), center: UnitPoint(x: 0.5, y: 0.3), startRadius: 10, endRadius: 200))
+        }
     }
 }
 
 struct CardBorderView_Previews: PreviewProvider {
     static var previews: some View {
-        CardBorderView(pokemonColorType: "grass")
+        CardBorderView(vm: ViewModel(), pokemonColorType: "grass")
     }
 }

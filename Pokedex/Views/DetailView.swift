@@ -16,7 +16,7 @@ struct DetailView: View {
             Color(.white)
                 .ignoresSafeArea()
             if let selected = vm.selectPokemon {
-                CardBorderView(pokemonColorType: selected.types[0].type.name)
+                CardBorderView(vm: vm, pokemonColorType: selected.types[0].type.name)
                 VStack {
                     HStack {
                         Image("\(selected.types[0].type.name)Type")
