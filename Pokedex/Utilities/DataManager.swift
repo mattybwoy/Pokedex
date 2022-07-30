@@ -8,11 +8,11 @@
 import Foundation
 import Combine
 
-class DataManager {
+class DataManager: ObservableObject {
     
     static let sharedInstance = DataManager()
     var pokelist = [Pokemon]()
-    var selectedPokemon: PokemonDetail?
+    @Published var selectedPokemon: PokemonDetail?
     var pokemonDescriptionText: String?
     var weaknesses: [String] = []
     var firstFormSprite: String?

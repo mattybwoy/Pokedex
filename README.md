@@ -20,6 +20,8 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 - Legendary Pokemon indicated
 
 ## Improvements
+- Image caching
+- Fully mocked network requests
 
 ## Testing
 - 5/5 UI Tests passing

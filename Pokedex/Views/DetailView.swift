@@ -58,6 +58,9 @@ struct DetailView: View {
                 }
             }
         }
+//        .onDisappear{
+//            vm.selectPokemon = nil
+//        }
     }
 }
 

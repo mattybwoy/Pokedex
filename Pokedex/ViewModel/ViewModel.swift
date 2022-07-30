@@ -14,7 +14,6 @@ class ViewModel: ObservableObject {
     @Published var pokemonDescription: String?
     @Published var pokemonStats: [PokemonStat]?
     @Published var pokemonChainArray = [String]()
-    //@Published var pokemonLegendary = false
     
     func getPokemonID(id: Pokemon) -> Int {
         if let index = self.pokemonList.firstIndex(of: id) {
@@ -99,6 +98,13 @@ class ViewModel: ObservableObject {
     var isLegend: Bool {
 
         return DataManager.sharedInstance.isLegendary
+    }
+    
+    var pokemonSprite: String {
+        guard let sprite = DataManager.sharedInstance.selectedPokemon?.sprites.front_default else {
+            return ""
+        }
+        return sprite
     }
     
     

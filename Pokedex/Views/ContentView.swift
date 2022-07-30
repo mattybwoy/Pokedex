@@ -17,7 +17,6 @@ struct ContentView: View {
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .darkGray
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
         UINavigationBar.appearance().tintColor = .darkGray
-        
     }
     
     var body: some View {
@@ -35,6 +34,8 @@ struct ContentView: View {
                                         Task.init {
                                             try await vm.setupSelectedPokemonView(pokemonID: vm.getPokemonID(id: pokemon))
                                         }
+                                    }.onDisappear {
+                                        vm.selectPokemon = nil
                                     })
                                 {
                                     HStack {
@@ -62,6 +63,10 @@ struct ContentView: View {
                         .foregroundColor(Color.black)
                         .cornerRadius(15)
                         .shadow(color: Color(UIColor.black.withAlphaComponent(0.8)), radius: 15, x: 0, y: 5)
+                        
+                        NavigationLink(destination: EmptyView()) { // <---- Here
+                                            EmptyView()
+                                        }
                     }
                     .navigationBarTitleDisplayMode(.inline)
                     .onAppear {
