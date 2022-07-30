@@ -19,6 +19,12 @@ struct PokemonImageCell: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
+                    .onAppear  {
+                        let loadedData = UserDefaults.standard.string(forKey: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(vm.getPokemonID(id: pokemon)).png")
+                        if let decoded = loadedData {
+                            UserDefaults.standard.set(decoded, forKey: decoded)
+                        }
+                    }
             }
         } placeholder: {
             ProgressView()
