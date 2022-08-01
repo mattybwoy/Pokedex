@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NukeUI
 
 struct PokemonImageCell: View {
     
@@ -13,25 +14,16 @@ struct PokemonImageCell: View {
     let pokemon: Pokemon
     
     var body: some View {
-        AsyncImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(vm.getPokemonID(id: pokemon)).png")) { image in
-            if let image = image {
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .onAppear  {
-                        let loadedData = UserDefaults.standard.string(forKey: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(vm.getPokemonID(id: pokemon)).png")
-                        if let decoded = loadedData {
-                            UserDefaults.standard.set(decoded, forKey: decoded)
-                        }
-                    }
+        LazyImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(vm.getPokemonID(id: pokemon)).png"), resizingMode: .aspectFill)
+            .frame(width: 100, height: 100)
+            .background(.thinMaterial)
+            .clipShape(Circle())
+            .onAppear {
+                let loadedData = UserDefaults.standard.string(forKey: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(vm.getPokemonID(id: pokemon)).png")
+                if let decoded = loadedData {
+                    UserDefaults.standard.set(decoded, forKey: decoded)
+                }
             }
-        } placeholder: {
-            ProgressView()
-                .frame(width: 100, height: 100)
-        }
-        .background(.thinMaterial)
-        .clipShape(Circle())
     }
 }
 

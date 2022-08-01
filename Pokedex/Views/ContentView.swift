@@ -63,10 +63,6 @@ struct ContentView: View {
                         .foregroundColor(Color.black)
                         .cornerRadius(15)
                         .shadow(color: Color(UIColor.black.withAlphaComponent(0.8)), radius: 15, x: 0, y: 5)
-                        
-                        NavigationLink(destination: EmptyView()) { // <---- Here
-                                            EmptyView()
-                                        }
                     }
                     .navigationBarTitleDisplayMode(.inline)
                     .onAppear {

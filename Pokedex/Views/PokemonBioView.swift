@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NukeUI
 
 struct PokemonBioView: View {
     
@@ -13,17 +14,9 @@ struct PokemonBioView: View {
     
     var body: some View {
         if let selected = vm.selectPokemon {
-            AsyncImage(url: URL(string: "\(selected.sprites.front_default)")) { image in
-                if let image = image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 220, height: 220)
-                }
-            } placeholder: {
-                ProgressView()
-                    .frame(width: 220, height: 220)
-            }
+            LazyImage(url: URL(string: ("\(selected.sprites.front_default)")), resizingMode: .aspectFill)
+            .frame(width: 220, height: 220)
+            
         }
     }
 }

@@ -42,4 +42,5 @@ SwiftUI
 11
 
 ## Dependencies
-PrettyAxis
+- PrettyAxis
+- Nuke

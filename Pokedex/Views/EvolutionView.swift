@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NukeUI
 
 struct EvolutionView: View {
     
@@ -19,17 +20,8 @@ struct EvolutionView: View {
                 .padding(.bottom, 5)
             HStack {
                 ForEach(vm.pokemonChainArray, id: \.self) { pokemon in
-                    AsyncImage(url: URL(string: pokemon)) { image in
-                        if let image = image {
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 70, height: 70)
-                        }
-                    } placeholder: {
-                        ProgressView()
-                            .frame(width: 70, height: 70)
-                    }
+                    LazyImage(url: URL(string: pokemon), resizingMode: .aspectFill)
+                        .frame(width: 70, height: 70)
                     if pokemon == "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png" {
                         Text("?")
                             .font(.custom("PokemonGB", size: 18))
