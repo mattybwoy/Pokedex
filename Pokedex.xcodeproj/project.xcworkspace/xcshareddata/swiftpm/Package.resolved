@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "c1c36dff9fa838c9d5d01a4096a9a9bab84d5a5e"
+      }
+    },
+    {
+      "identity" : "prettyaxis",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RiuHDuo/PrettyAxis.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "280f8cf0373c52fc0eb32bf9dbebeecde36ccd95"
+      }
+    }
+  ],
+  "version" : 2
+}
