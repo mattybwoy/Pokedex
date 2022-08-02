@@ -39,9 +39,9 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 <img src="Documentation/PokemonEvolution.png" width="30%" height="30%">
 
 ## Demo
-<img src="Documentation/StandardGif.gif" width="30%" height="30%">
-<img src="Documentation/SearchedGif.gif" width="30%" height="30%">
 ![Standard](Documentation/StandardGif.gif)
+![Searched](Documentation/SsearchedGif.gif)
+
 ## Tech Stack
 SwiftUI
 
