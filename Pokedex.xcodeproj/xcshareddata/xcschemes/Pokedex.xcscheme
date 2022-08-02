@@ -55,6 +55,11 @@
                BlueprintName = "PokedexUITests"
                ReferencedContainer = "container:Pokedex.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "PokedexUITests/testInSelectedPokemonScreenOneSwipeRightDisplaysPokemonStats()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

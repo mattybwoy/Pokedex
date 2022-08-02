@@ -33,35 +33,24 @@ class PokedexNetworkingTests: XCTestCase {
         XCTAssertEqual(sut.pokelist.count, 151)
     }
     
-    func testWhenUnsuccessfulRequestReturnError() async throws {
+    func testwhenUnsuccessfulRequestReturnError() async throws {
         let count = 1154
         let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?limit=151\", \"previous\": null, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
         
         MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
         try await sut.fetchPokemonList(api: "")
-        XCTAssertTrue(MockURLProtocol.error == nil)
-        
+        XCTAssertThrowsError(APIError.noResponse)
+        XCTAssertThrowsError(APIError.no200)
     }
     
-    func testfetchOnePokemonRetrievesOnePokemon() async throws {
+    func testfetchPokemonDetailRetrievesSelectedPokemonInformation() async throws {
         let count = 1154
         let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?offset=1&limit=1\", \"previous\": null, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
-        
         MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
-        try await sut.fetchOnePokemon()
-        XCTAssertNotNil(sut.pokelist)
-        XCTAssertEqual(sut.pokelist.count, 1)
-    }
-
-    func testAPICallRetrievesListOfPokemon() async throws {
-        let count = 1154
-        let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?limit=151\", \"previous\": null, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
         
-        MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
-        try await sut.fetchPokemonList()
-        XCTAssertNotNil(sut.pokelist)
-        XCTAssertEqual(sut.pokelist.count, 1)
-
+        try await sut.fetchPokemonDetail(id: 1)
+        XCTAssertNotNil(sut.selectedPokemon)
+        
     }
     
 

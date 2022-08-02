@@ -7,7 +7,11 @@
 
 import Foundation
 
-class DataManager {
+protocol MockService {
+    func fetchPokemonDetail(id: Int) async throws
+}
+
+class DataManager: MockService {
     
     static let sharedInstance = DataManager()
     var pokelist = [Pokemon]()
@@ -23,25 +27,6 @@ class DataManager {
     
     init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
-    }
-    
-    func fetchOnePokemon() async throws {
-        if let url = URL(string: APIType.onePokemon.rawValue) {
-            let (data, response) = try await urlSession.data(from: url)
-            guard let response = response as? HTTPURLResponse else {
-                throw APIError.noResponse
-            }
-            guard response.statusCode == 200 else {
-                throw APIError.no200
-            }
-            
-            guard let status = try JSONDecoder().decode(PokemonList?.self, from: data) else {
-                throw APIError.noData
-            }
-            DispatchQueue.main.async {
-                self.pokelist = status.results
-            }
-        }
     }
     
     func fetchPokemonList(api: String = APIType.pokemonList.rawValue) async throws {

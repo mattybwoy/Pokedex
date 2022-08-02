@@ -58,19 +58,6 @@ class PokedexUITests: XCTestCase {
         XCTAssertTrue(tableExists)
     }
     
-    func testAfterSelectingPokemonNextScreenDisplaysPokemonBio() {
-        sleep(2)
-        let firstCell =  app.children(matching: .window).element(boundBy: 0)
-        firstCell.tap()
-        let pokemonName = app.staticTexts["ivysaur"]
-        let pokemonHeight = app.staticTexts["Height: 100 cm"]
-        let pokemonWeight = app.staticTexts["Weight: 13 kg"]
-        sleep(2)
-        XCTAssertTrue(pokemonName.exists)
-        XCTAssertTrue(pokemonHeight.exists)
-        XCTAssertTrue(pokemonWeight.exists)
-    }
-    
     
 }
 
