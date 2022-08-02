@@ -33,7 +33,7 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 1. Clone repository
 
 ## Screenshots
-<img src="Documentation/MainScreen.png" width="30%" height="30%">
+<img src="Documentation/MainScreen.png" width="50%" height="50%">
 <img src="Documentation/PokemonScreen.png" width="30%" height="30%">
 <img src="Documentation/PokemonStats.png" width="30%" height="30%">
 <img src="Documentation/PokemonEvolution.png" width="30%" height="30%">
@@ -41,7 +41,7 @@ Create a Pokédex of all 151 original pokémon, utilising the Pokémon API (http
 ## Demo
 <img src="Documentation/StandardGif.gif" width="30%" height="30%">
 <img src="Documentation/SearchedGif.gif" width="30%" height="30%">
-
+![Standard](Documentation/StandardGif.gif)
 ## Tech Stack
 SwiftUI
 
