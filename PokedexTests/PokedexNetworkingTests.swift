@@ -38,8 +38,9 @@ class PokedexNetworkingTests: XCTestCase {
         let jsonString = "{\"count\": \(count), \"next\": \"https://pokeapi.co/api/v2/pokemon/?limit=151\", \"previous\": null, \"results\": [{\"name\": \"bulbasaur\", \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"}]}"
         
         MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
-        try await sut.fetchPokemonList()
-        XCTAssertTrue(MockURLProtocol.error != nil)
+        try await sut.fetchPokemonList(api: "")
+        XCTAssertTrue(MockURLProtocol.error == nil)
+        
     }
     
     func testfetchOnePokemonRetrievesOnePokemon() async throws {

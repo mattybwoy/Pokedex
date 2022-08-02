@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import Combine
 
-class DataManager: ObservableObject {
+class DataManager {
     
     static let sharedInstance = DataManager()
     var pokelist = [Pokemon]()
-    @Published var selectedPokemon: PokemonDetail?
+    var selectedPokemon: PokemonDetail?
     var pokemonDescriptionText: String?
     var weaknesses: [String] = []
     var firstFormSprite: String?
@@ -45,8 +44,8 @@ class DataManager: ObservableObject {
         }
     }
     
-    func fetchPokemonList() async throws {
-        if let url = URL(string: APIType.pokemonList.rawValue) {
+    func fetchPokemonList(api: String = APIType.pokemonList.rawValue) async throws {
+        if let url = URL(string: api) {
             let (data, response) = try await urlSession.data(from: url)
             guard let response = response as? HTTPURLResponse else {
                 throw APIError.noResponse
@@ -227,4 +226,15 @@ class DataManager: ObservableObject {
     }
     
     
+}
+
+extension Data {
+    func parseData(removeString string: String) -> Data? {
+        let dataAsString = String(data: self, encoding: .utf8)
+        let parsedDataString = dataAsString?.replacingOccurrences(of: string, with: "")
+        guard let data = parsedDataString?.data(using: .utf8) else {
+            return nil
+        }
+        return data
+    }
 }

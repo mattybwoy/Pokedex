@@ -44,7 +44,7 @@ class PokedexUITests: XCTestCase {
         searchSearchField.typeText("Weedle")
         let result = app.tables.staticTexts["weedle"]
         result.tap()
-        XCTAssertTrue(app.staticTexts["Pokemon name is weedle"].exists)
+        XCTAssertTrue(app.staticTexts["weedle"].exists)
     }
     
     func testAfterSelectingPokemonNavigationLinkAllowsYouToGoBack() {
@@ -62,9 +62,13 @@ class PokedexUITests: XCTestCase {
         sleep(2)
         let firstCell =  app.children(matching: .window).element(boundBy: 0)
         firstCell.tap()
-        let pokemonText = app.staticTexts["ivysaur"]
+        let pokemonName = app.staticTexts["ivysaur"]
+        let pokemonHeight = app.staticTexts["Height: 100 cm"]
+        let pokemonWeight = app.staticTexts["Weight: 13 kg"]
         sleep(2)
-        XCTAssertTrue(pokemonText.exists)
+        XCTAssertTrue(pokemonName.exists)
+        XCTAssertTrue(pokemonHeight.exists)
+        XCTAssertTrue(pokemonWeight.exists)
     }
     
     
